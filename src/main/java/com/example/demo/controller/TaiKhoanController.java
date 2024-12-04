@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,8 +37,7 @@ public class TaiKhoanController {
 		List<TaiKhoanDTO> TaiKhoanDTOs = khoas.stream().map(k -> new ModelMapper().map(k, TaiKhoanDTO.class)).collect(Collectors.toList());
 		return TaiKhoanDTOs;
 	}
-	
-	@PostMapping("/create")
+	@PostMapping("")
 	public TaiKhoan create(@Valid @RequestBody TaiKhoan taiKhoan){
 		return taiKhoanService.create(taiKhoan);
 	}

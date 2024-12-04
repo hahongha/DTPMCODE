@@ -31,9 +31,11 @@ public class KhoaController {
 		return khoaDTOs;
 	}
 	
-	@PostMapping("/create")
-	public Khoa create(@Valid @RequestBody KhoaCreate khoaCreate){ 
-		return khoaService.create(khoaCreate.getKhoa(), khoaCreate.getLopDTO());
+	@PostMapping("")
+	public KhoaDTO create(@Valid @RequestBody KhoaCreate khoaCreate){ 
+		Khoa khoa = khoaService.create(khoaCreate.getKhoa(), khoaCreate.getLopDTO());
+		KhoaDTO khoaDTO = new ModelMapper().map(khoa, KhoaDTO.class);
+		return khoaDTO;
 	}
 	
 }

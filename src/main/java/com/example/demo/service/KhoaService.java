@@ -17,6 +17,7 @@ import com.example.demo.repository.TaiKhoanRepo;
 
 public interface KhoaService {
 	List<Khoa> getAll();
+	Khoa create1(Khoa khoa);
 	Khoa create(Khoa khoa, List<LopDTO> lopDTOs);
 }
 @Service
@@ -26,8 +27,9 @@ class KhoaServiceImpl implements KhoaService{
 	KhoaRepo khoaRepo;
 	@Autowired
 	TaiKhoanRepo taiKhoanRepo;
+	
 	@Autowired
-	LopRepo lopRepo;
+	LopService lopService;
 	
 	@Override
 	public List<Khoa> getAll() {
@@ -38,17 +40,24 @@ class KhoaServiceImpl implements KhoaService{
 
 	@Override
 	public Khoa create(Khoa khoa, List<LopDTO> lopDTOs) {
-		Khoa khoa2 = khoaRepo.save(khoa);
+		Khoa khoa2 = create1(khoa);
 		if(lopDTOs!=null && lopDTOs.size()!=0) {
 		for (LopDTO lopDTO : lopDTOs) {
 			System.err.println(lopDTOs.size());
 			TaiKhoan taikhoan = taiKhoanRepo.findById(lopDTO.getMaGV()).get();
 			LopKey lopKey = new LopKey(khoa2.getMaKhoa(), taikhoan.getMaTaiKhoan());
 			Lop lop = new Lop(lopKey, khoa2, taikhoan, lopDTO.getThuTu(), lopDTO.getNgayBatDau());
-			lopRepo.save(lop);
+			lopService.create(lop);
 		}			
 		}
 		return khoa2;
 	}
+
+	@Override
+	public Khoa create1(Khoa khoa) {
+		return khoaRepo.save(khoa);
+	}
+	
+	
 	
 }
