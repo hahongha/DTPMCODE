@@ -37,9 +37,6 @@ public class Lop {
     @JoinColumn(name = "ma_tai_khoan")
     TaiKhoan TaiKhoan;
     
-    @Column(name="ThuTu")
-    int ThuTu;
-    
     @Column(name="NgayBatDau")
     Date NgayBatDau;
     

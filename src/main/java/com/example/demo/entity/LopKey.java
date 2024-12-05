@@ -17,4 +17,7 @@ public class LopKey implements Serializable {
 
     @Column(name = "ma_tai_khoan")
     private int MaTaiKhoan;
+    
+    @Column(name="ThuTu")
+    int ThuTu;
 }

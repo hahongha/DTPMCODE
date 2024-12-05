@@ -45,8 +45,8 @@ class KhoaServiceImpl implements KhoaService{
 		for (LopDTO lopDTO : lopDTOs) {
 			System.err.println(lopDTOs.size());
 			TaiKhoan taikhoan = taiKhoanRepo.findById(lopDTO.getMaGV()).get();
-			LopKey lopKey = new LopKey(khoa2.getMaKhoa(), taikhoan.getMaTaiKhoan());
-			Lop lop = new Lop(lopKey, khoa2, taikhoan, lopDTO.getThuTu(), lopDTO.getNgayBatDau());
+			LopKey lopKey = new LopKey(khoa2.getMaKhoa(), taikhoan.getMaTaiKhoan(), lopDTO.getThuTu());
+			Lop lop = new Lop(lopKey, khoa2, taikhoan, lopDTO.getNgayBatDau());
 			lopService.create(lop);
 		}			
 		}
