@@ -14,32 +14,18 @@ const rent = {
   type: 'group',
   children: [
     {
-      id: 'contract',
-      title: 'contract',
+      id: 'addTaiKhoan',
+      title: 'Tài Khoản',
       type: 'item',
-      url: '/contract',
-      icon: icons.LoginOutlined,
+      url: '/addTaiKhoan',
+      icon: icons.DashboardOutlined,
     },
     {
-      id: 'person',
-      title: 'person',
+      id: 'addKhoa',
+      title: 'Khóa',
       type: 'item',
-      url: '/person',
-      icon: icons.ProfileOutlined,
-    },
-    {
-      id: 'user',
-      title: 'user',
-      type:'item',
-      url: '/user',
-      icon: icons.ProfileOutlined,
-    },
-    {
-      id: 'service',
-      title: 'service',
-      type:'item',
-      url: '/service',
-      icon: icons.ProfileOutlined,
+      url: '/test',
+      icon: icons.DashboardOutlined,
     }
   ]
 };

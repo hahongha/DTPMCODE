@@ -50,7 +50,7 @@ function CourseForm() {
     };
 
     // Hiển thị JSON lên giao diện
-    alert(JSON.stringify(jsonData, null, 2));
+    // alert(JSON.stringify(jsonData, null, 2));
 
     // Gửi JSON qua API
     createKhoaService(jsonData);
